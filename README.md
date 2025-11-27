@@ -13,6 +13,10 @@
 O ConectaDev é um projeto desenvolvido em React que simula um feed de sugestões de conexões inspirado no visual do LinkedIn. Ele consome uma API externa para listar perfis reais de forma dinâmica, exibindo cards organizados em uma interface limpa e moderna.
 O objetivo do projeto é praticar componentização, consumo de API e boas práticas de organização no React para desenvolvimento front-end.
 
+## ✔ API pública
+
+O projeto utiliza a API pública JSONPlaceholder (https://jsonplaceholder.typicode.com/) para simular dados reais de usuários durante o desenvolvimento.
+
 ---
 
 <img width="1138" height="596" alt="image" src="https://github.com/user-attachments/assets/5bb51b23-9d2b-4c28-bcc3-d97be34f202d" />
