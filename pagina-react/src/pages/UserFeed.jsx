@@ -1,7 +1,7 @@
-
 import { useState, useEffect } from 'react';
 import { getUsers } from '../service/userService';
 import UserCard from '../components/UserCard';
+import './UserFeed.css'; 
 
 function UserFeed() {
   const [userList, setUserList] = useState([]);
@@ -11,11 +11,8 @@ function UserFeed() {
     async function loadData() {
       try {
         setLoading(true);
-        
-        // Busca simples apenas dos usuários
         const data = await getUsers();
         setUserList(data);
-
       } catch (error) {
         console.error("Erro:", error);
       } finally {
@@ -26,20 +23,22 @@ function UserFeed() {
   }, []);
 
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
-      <h1 style={{ textAlign: 'center', color: '#fff' }}>Lista de Usuários</h1>
+    <div className="feed-container">
+      <h1 className="feed-title">Sugestões de Conexão</h1>
 
       {loading ? (
-        <p style={{ textAlign: 'center', color: '#fff' }}>Carregando...</p>
+        <div className="loading-container">
+             <div className="loading-spinner"></div>
+             <p>Buscando perfis...</p>
+        </div>
       ) : (
-        <div>
+        
+        <div className="users-grid">
           {userList.map(user => (
             <UserCard 
               key={user.id}
               name={user.name}
               email={user.email}
-              
-              // O set4 cria gatinhos, se tirar o set4 vira robôs.
               photoUrl={`https://robohash.org/${user.id}?set=set5&size=150x150`} 
             />
           ))}
